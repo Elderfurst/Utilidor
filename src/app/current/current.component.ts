@@ -18,4 +18,7 @@ export class CurrentComponent implements OnInit {
     this.currentList = this.currentService.getCurrentInstances();
   }
 
+  showInstanceDetail(instance: CurrentInstanceModel) {
+    window.alert('Instance ' + instance.InstanceId + ' was clicked');
+  }
 }
