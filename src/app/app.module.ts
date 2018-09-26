@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavTabsComponent } from './nav-tabs/nav-tabs.component';
 import { CurrentComponent } from './current/current.component';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { CurrentComponent } from './current/current.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     NgbModule
   ],
   providers: [],
