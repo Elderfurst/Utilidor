@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavTabsComponent } from './nav-tabs/nav-tabs.component';
+import { CurrentComponent } from './current/current.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavTabsComponent
+    NavTabsComponent,
+    CurrentComponent
   ],
   imports: [
     BrowserModule,
