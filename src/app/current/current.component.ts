@@ -15,7 +15,13 @@ export class CurrentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentList = this.currentService.getCurrentInstances();
+    this.currentService.getCurrentInstances().subscribe((data: CurrentInstanceModel[]) => {
+      this.currentList = data;
+
+      this.currentList.forEach((element) => {
+        element.ElapsedTime =  Date.now() - Date.parse('2018-09-16T18:39:27.49');
+      });
+    });
   }
 
   showInstanceDetail(instance: CurrentInstanceModel) {

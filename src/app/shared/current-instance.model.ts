@@ -1,4 +1,5 @@
 export class CurrentInstanceModel {
+    UtilityId: number;
     InstanceId: number;
     UtilityName: string;
     StartTime: Date;
