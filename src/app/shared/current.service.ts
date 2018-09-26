@@ -8,19 +8,29 @@ import { Observable } from 'rxjs';
 })
 export class CurrentService {
 
-  constructor(private http: Http) { }
+  currentList: CurrentInstanceModel[];
+
+  constructor(private http: Http) {
+    this.currentList = [];
+    this.fakeCurrentInstanceData();
+  }
 
   getCurrentInstances(): CurrentInstanceModel[] {
-    const currentList = [];
+    return this.currentList;
+  }
 
+  getCurrentInstance(id: number): CurrentInstanceModel {
+    const retVal = this.currentList.find(i => i.InstanceId === id);
+    return retVal;
+  }
+
+  fakeCurrentInstanceData() {
     // Fake it till you make it
-    currentList.push({ InstanceId: 1, UtilityName: 'Utility 1', StartTime: new Date(), AverageTime: 5,
+    this.currentList.push({ InstanceId: 1, UtilityName: 'Utility 1', StartTime: new Date(), AverageTime: 5,
                        ElapsedTime: 10, PercentComplete: 80 });
-    currentList.push({ InstanceId: 2, UtilityName: 'Utility 2', StartTime: new Date(), AverageTime: 5,
+    this.currentList.push({ InstanceId: 2, UtilityName: 'Utility 2', StartTime: new Date(), AverageTime: 15,
                        ElapsedTime: 10, PercentComplete: 75 });
-    currentList.push({ InstanceId: 3, UtilityName: 'Utility 3', StartTime: new Date(), AverageTime: 5,
+    this.currentList.push({ InstanceId: 3, UtilityName: 'Utility 3', StartTime: new Date(), AverageTime: 7,
                        ElapsedTime: 10, PercentComplete: 10 });
-
-    return currentList;
   }
 }
