@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavTabsComponent } from './nav-tabs/nav-tabs.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { HistoricalComponent } from './historical/historical.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     NavTabsComponent,
-    NavBarComponent
+    NavBarComponent,
+    HistoricalComponent
   ],
   imports: [
     BrowserModule,
