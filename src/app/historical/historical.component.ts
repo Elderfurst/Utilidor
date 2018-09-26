@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilityService } from '../shared/utility.service';
 
 @Component({
   selector: 'app-historical',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoricalComponent implements OnInit {
 
-  constructor() { }
+  utilityNameList: string [];
+
+  constructor(private utilityService: UtilityService) {
+    this.utilityNameList = this.utilityService.getUtilities();
+   }
 
   ngOnInit() {
   }
