@@ -12,21 +12,18 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Log</th>
-      <th>Level</th>
-      <th>Message</th>
+      <th>ID</th>
+      <th>Start</th>
+      <th>Completed</th>
+      <th>Total Running Time</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">Completed</th>
-      <th>Informational</th>
-      <th>OrgID 4417 Completed.</th>
-    </tr>
-    <tr>
-      <th scope="row">Completed</th>
-      <th>Informational</th>
-      <th>OrgID 8888 Completed.</th>
+    <tr *ngFor="let i of instanceList">
+      <th scope="row">{{i.id}}</th>
+      <td>{{i.startTime}}</td>
+      <td>{{i.completeTime}}</td>
+      <td>01:02:25</td>
     </tr>
   </tbody>
 </table>
