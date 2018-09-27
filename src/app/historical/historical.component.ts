@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UtilityService } from '../shared/utility.service';
 import { Utility } from '../shared/models/utility.model';
 import { Instance } from '../shared/models/instance.model';
-import { Logs } from '../../../node_modules/@types/selenium-webdriver';
+import { Log } from '../shared/models/log.model';
 import { TimeHelperService } from '../shared/services/time-helper.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class HistoricalComponent implements OnInit {
   dropdownText: string;
   utilityList: Utility[];
   instanceList: Instance[];
-  logList: Logs[];
+  logList: Log[];
 
   constructor(private utilityService: UtilityService, private timeHelper: TimeHelperService) {
     this.dropdownText = 'Select a Utility';
@@ -43,8 +43,12 @@ export class HistoricalComponent implements OnInit {
   }
 
   showLogs(instance: Instance) {
-    this.utilityService.getLogs(instance.id).subscribe((data: Logs[]) => {
+    this.utilityService.getLogs(instance.id).subscribe((data: Log[]) => {
       this.logList = data;
+
+      this.logList.forEach((elem) => {
+        elem.timeInSeconds = this.timeHelper.convertToSecondsFromEpox(elem.timestamp.toString());
+      });
     });
   }
 }
