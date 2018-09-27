@@ -24,7 +24,10 @@ export class CurrentComponent implements OnInit {
       this.currentList = data;
 
       this.currentList.forEach((element) => {
-        element.elapsedTime =  this.timeService.getDuration(element.startTime.toString());
+        element.startTimeInSeconds = this.timeService.convertToSecondsFromEpox(element.startTime.toString());
+        element.elapsedTimeInSeconds = Date.now() - element.startTimeInSeconds;
+        element.elapsedTime = this.timeService.getDuration(element.startTime.toString());
+        element.avgTimeString = this.timeService.formatDuration(element.averageTime);
       });
     });
   }
@@ -37,5 +40,15 @@ export class CurrentComponent implements OnInit {
         elem.timeInSeconds = this.timeService.convertToSecondsFromEpox(elem.timestamp.toString());
       });
     });
+  }
+
+  getBarColor(elapsed: number, avgTime: number) {
+    if (elapsed < avgTime) {
+      return 'info';
+    } else if (elapsed >= avgTime && elapsed < (avgTime * 1.25)) {
+      return 'warning';
+    } else {
+      return 'danger';
+    }
   }
 }
