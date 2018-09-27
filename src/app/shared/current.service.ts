@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions } from '@angular/http';
 import { CurrentInstanceModel } from './current-instance.model';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 @Injectable({

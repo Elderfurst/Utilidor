@@ -25,13 +25,13 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     NavTabsComponent,
+    NavBarComponent,
     CurrentComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     NgbModule,
-    NavBarComponent,
     RouterModule.forRoot(routes)
   ],
   providers: [],
