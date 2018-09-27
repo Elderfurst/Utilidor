@@ -19,7 +19,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let i of instanceList">
+    <tr *ngFor="let i of instanceList" (click)="showLogs(i)">
       <th scope="row">{{i.id}}</th>
       <td>{{i.startTime}}</td>
       <td>{{i.completeTime}}</td>
@@ -27,3 +27,4 @@
     </tr>
   </tbody>
 </table>
+<app-logging [messages]="logList"></app-logging>
