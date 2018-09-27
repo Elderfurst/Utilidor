@@ -20,8 +20,18 @@ export class UtilityService {
                     .pipe(map(res => res.json()));
   }
 
-  getCurrentInstance(id: number): CurrentInstanceModel {
-    const retVal = this.currentList.find(i => i.instanceId === id);
-    return retVal;
+  getAllUtilities(): Observable<any> {
+    return this.http.get(environment.utiladorApi + '/utility/GetAllUtilities')
+                    .pipe(map(res => res.json()));
+  }
+
+  getInstances(utilityId: number): Observable<any> {
+    return this.http.get(environment.utiladorApi + `/{utilityId}/instances`)
+                    .pipe(map(res => res.json()));
+  }
+
+  getLogs(instanceId: number): Observable<any> {
+    return this.http.get(environment.utiladorApi + `/logs/{instanceId}`)
+                    .pipe(map(res => res.json()));
   }
 }
