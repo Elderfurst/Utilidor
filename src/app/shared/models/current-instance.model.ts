@@ -3,7 +3,7 @@ export class CurrentInstance {
     instanceId: number;
     utilityName: string;
     startTime: Date;
-    elapsedTime: number;
+    elapsedTime: string;
     averageTime: number;
     percentComplete: number;
 }

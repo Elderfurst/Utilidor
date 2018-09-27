@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrentInstance } from '../shared/models/current-instance.model';
 import { UtilityService } from '../shared/utility.service';
+import { TimeHelperService } from '../shared/services/time-helper.service';
 import { Log } from '../shared/models/log.model';
+
 @Component({
   selector: 'app-current',
   templateUrl: './current.component.html',
@@ -12,7 +14,7 @@ export class CurrentComponent implements OnInit {
   currentList: CurrentInstance[];
   currentMessages: Log[];
 
-  constructor(private utilityService: UtilityService) {
+  constructor(private utilityService: UtilityService, private timeService: TimeHelperService) {
     this.currentList = [];
     this.currentMessages = [];
   }
@@ -22,7 +24,7 @@ export class CurrentComponent implements OnInit {
       this.currentList = data;
 
       this.currentList.forEach((element) => {
-        element.elapsedTime =  Date.now() - Date.parse('2018-09-16T18:39:27.49');
+        element.elapsedTime =  this.timeService.getDuration(element.startTime.toString());
       });
     });
   }
