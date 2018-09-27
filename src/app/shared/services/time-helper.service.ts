@@ -24,7 +24,7 @@ export class TimeHelperService {
       completedSeconds = this.convertToSecondsFromEpox(completed);
     }
 
-    const durationSeconds = completedSeconds - startedSeconds;
+    const durationSeconds = (completedSeconds - startedSeconds) / 1000;
     return this.formatDuration(durationSeconds);
   }
 
@@ -35,7 +35,17 @@ export class TimeHelperService {
     seconds -= hrs * 3600;
     const mnts = Math.floor(seconds / 60);
     seconds -= mnts * 60;
+    seconds = Math.floor(seconds);
 
-    return `${days}days + ${hrs}:${mnts}:${seconds}`;
+    const hs = `${hrs}`.padStart(2, '0');
+    const ms = `${mnts}`.padStart(2, '0');
+    const ss = `${seconds}`.padStart(2, '0');
+
+    let retVal = `${hs}h ${ms}m ${ss}s`;
+    if (days !== 0 ) {
+      retVal = `${days}d ` + retVal;
+    }
+
+    return retVal;
   }
 }
