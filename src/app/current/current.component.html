@@ -4,8 +4,8 @@
       <th>#</th>
       <th>Name</th>
       <th>Started</th>
-      <th>Elapsed Time (s)</th>
-      <th>Avg Time (s)</th>
+      <th>Elapsed Time</th>
+      <th>Avg Time</th>
       <th>% Complete</th>
     </tr>
   </thead>
@@ -15,7 +15,7 @@
       <td>{{item.utilityName}}</td>
       <td>{{item.startTimeInSeconds | date:'medium'}}</td>
       <td>{{item.elapsedTime}}</td>
-      <td>{{item.averageTime}}</td>
+      <td>{{item.avgTimeString}}</td>
       <td><ngb-progressbar type={{getBarColor(item.elapsedTimeInSeconds,item.averageTime)}} value="{{item.percentComplete}}" striped="true" animated="true" height="22px">{{item.percentComplete | number: '1.0-0'}}%</ngb-progressbar></td>
     </tr>
   </tbody>

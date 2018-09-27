@@ -27,6 +27,7 @@ export class CurrentComponent implements OnInit {
         element.startTimeInSeconds = this.timeService.convertToSecondsFromEpox(element.startTime.toString());
         element.elapsedTimeInSeconds = Date.now() - element.startTimeInSeconds;
         element.elapsedTime = this.timeService.getDuration(element.startTime.toString());
+        element.avgTimeString = this.timeService.formatDuration(element.averageTime);
       });
     });
   }

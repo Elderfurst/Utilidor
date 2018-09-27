@@ -10,4 +10,5 @@ export class CurrentInstance {
     percentComplete: number;
     startTimeInSeconds: number;
     elapsedTimeInSeconds: number;
+    avgTimeString: string;
 }
