@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrentInstanceModel } from '../shared/current-instance.model';
-import { CurrentService } from '../shared/current.service';
+import { UtilityService } from '../shared/utility.service';
 @Component({
   selector: 'app-current',
   templateUrl: './current.component.html',
@@ -10,12 +10,12 @@ export class CurrentComponent implements OnInit {
 
   currentList: CurrentInstanceModel[];
 
-  constructor(private currentService: CurrentService) {
+  constructor(private utilityService: UtilityService) {
     this.currentList = [];
   }
 
   ngOnInit() {
-    this.currentService.getCurrentInstances().subscribe((data: CurrentInstanceModel[]) => {
+    this.utilityService.getCurrentInstances().subscribe((data: CurrentInstanceModel[]) => {
       this.currentList = data;
 
       this.currentList.forEach((element) => {
