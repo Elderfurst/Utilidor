@@ -32,6 +32,10 @@ export class CurrentComponent implements OnInit {
   showInstanceDetail(instance: CurrentInstance) {
     this.utilityService.getLogs(instance.instanceId).subscribe((data: Log[]) => {
       this.currentMessages = data;
+
+      this.currentMessages.forEach((elem) => {
+        elem.timeInSeconds = this.timeService.convertToSecondsFromEpox(elem.timestamp.toString());
+      });
     });
   }
 }
