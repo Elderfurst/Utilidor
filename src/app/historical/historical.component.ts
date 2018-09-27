@@ -9,10 +9,12 @@ import { Utility } from '../shared/models/utility.model';
 })
 export class HistoricalComponent implements OnInit {
 
-  utilityList: Utility [];
+  utilityList: Utility[];
 
   constructor(private utilityService: UtilityService) {
-    this.utilityList = this.utilityService.getAllUtilities();
+    this.utilityService.getAllUtilities().subscribe((data: Utility[]) => {
+      this.utilityList = data;
+    });
    }
 
   ngOnInit() {

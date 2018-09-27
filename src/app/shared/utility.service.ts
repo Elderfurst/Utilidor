@@ -4,6 +4,7 @@ import { CurrentInstanceModel } from './current-instance.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { Utility } from './models/utility.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,8 @@ export class UtilityService {
                     .pipe(map(res => res.json()));
   }
 
-  getAllUtilities(): Observable<any> {
-    return this.http.get(environment.utiladorApi + '/utility/GetAllUtilities')
+  getAllUtilities(): Observable<Utility[]> {
+    return this.http.get(environment.utiladorApi + '/utility')
                     .pipe(map(res => res.json()));
   }
 
