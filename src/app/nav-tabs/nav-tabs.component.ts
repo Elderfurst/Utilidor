@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from '../shared/models/message.model';
+import { TimeHelperService } from '../shared/services/time-helper.service';
 
 @Component({
   selector: 'app-nav-tabs',
@@ -14,7 +15,9 @@ export class NavTabsComponent implements OnInit {
   messages3: Message[] = [];
   messages4: Message[] = [];
 
-  constructor() {
+  constructor(
+    private timeHelper: TimeHelperService
+  ) {
   }
 
   ngOnInit() {
@@ -41,6 +44,8 @@ export class NavTabsComponent implements OnInit {
     this.messages2.push(new Message(Date.now(), 0, 'This is an information message'));
     this.messages3.push(new Message(Date.now(), 1, 'This is a warning message'));
     this.messages4.push(new Message(Date.now(), 2, 'This is an error message'));
+
+    console.log(this.timeHelper.convertToSecondsFromEpox('2018-09-16T18:39:27.49'));
   }
 
   setMessages(num: number) {

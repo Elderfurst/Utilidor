@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  utiladorApi: 'http://localhost:53708/api'
 };
