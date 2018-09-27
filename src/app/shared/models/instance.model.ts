@@ -3,6 +3,7 @@ export class Instance {
     utilityId: number;
     startTime: Date;
     completeTime: Date;
+    elapsedTime: string;
     numerator: number;
     denominator: number;
 }
