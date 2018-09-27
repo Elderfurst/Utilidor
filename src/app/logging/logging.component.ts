@@ -14,7 +14,7 @@ export class LoggingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    console.log(this.messages);
   }
 
   getRowClass(level: LogLevel) {

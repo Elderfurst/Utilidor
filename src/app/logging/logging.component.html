@@ -2,13 +2,13 @@
   <h3>Logging</h3>
 </div>
 
-<div class="mt-3" *ngIf="messages === null">
+<div class="mt-3" *ngIf="messages === null || messages.length === 0">
   <div class="alert alert-primary" role="alert">
     Select a utility above to see logs.
   </div>
 </div>
 
-<div *ngIf="messages !== null">
+<div *ngIf="messages !== null && messages !== []">
     <table class="table table-sm">
         <thead>
           <tr>
