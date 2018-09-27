@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  utiladorApi: 'http://utilidor.azurewebsites.net/api'
+  utiladorApi: 'https://utilidor.azurewebsites.net/api'
 };
