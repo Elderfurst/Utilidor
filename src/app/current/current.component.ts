@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CurrentInstanceModel } from '../shared/current-instance.model';
+import { CurrentInstance } from '../shared/models/current-instance.model';
 import { UtilityService } from '../shared/utility.service';
 @Component({
   selector: 'app-current',
@@ -8,14 +8,14 @@ import { UtilityService } from '../shared/utility.service';
 })
 export class CurrentComponent implements OnInit {
 
-  currentList: CurrentInstanceModel[];
+  currentList: CurrentInstance[];
 
   constructor(private utilityService: UtilityService) {
     this.currentList = [];
   }
 
   ngOnInit() {
-    this.utilityService.getCurrentInstances().subscribe((data: CurrentInstanceModel[]) => {
+    this.utilityService.getCurrentInstances().subscribe((data: CurrentInstance[]) => {
       this.currentList = data;
 
       this.currentList.forEach((element) => {
@@ -24,7 +24,7 @@ export class CurrentComponent implements OnInit {
     });
   }
 
-  showInstanceDetail(instance: CurrentInstanceModel) {
+  showInstanceDetail(instance: CurrentInstance) {
     window.alert('Instance ' + instance.instanceId + ' was clicked');
   }
 }

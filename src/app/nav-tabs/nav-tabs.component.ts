@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Message } from '../shared/models/message.model';
-import { TimeHelperService } from '../shared/services/time-helper.service';
+import { Log } from '../shared/models/log.model';
 
 @Component({
   selector: 'app-nav-tabs',
@@ -9,43 +8,39 @@ import { TimeHelperService } from '../shared/services/time-helper.service';
 })
 export class NavTabsComponent implements OnInit {
 
-  messages: Message[] = [];
-  messages1: Message[] = [];
-  messages2: Message[] = [];
-  messages3: Message[] = [];
-  messages4: Message[] = [];
+  messages: Log[] = [];
+  messages1: Log[] = [];
+  messages2: Log[] = [];
+  messages3: Log[] = [];
+  messages4: Log[] = [];
 
-  constructor(
-    private timeHelper: TimeHelperService
-  ) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 1, 'This is a warning message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 1, 'This is a warning message'));
-    this.messages1.push(new Message(Date.now(), 1, 'This is a warning message'));
-    this.messages1.push(new Message(Date.now(), 1, 'This is a warning message'));
-    this.messages1.push(new Message(Date.now(), 2, 'This is an error message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 1, 'This is a warning Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 1, 'This is a warning Log'));
+    this.messages1.push(new Log(1, new Date(), 1, 'This is a warning Log'));
+    this.messages1.push(new Log(1, new Date(), 1, 'This is a warning Log'));
+    this.messages1.push(new Log(1, new Date(), 2, 'This is an error Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
+    this.messages1.push(new Log(1, new Date(), 0, 'This is an information Log'));
 
-    this.messages2.push(new Message(Date.now(), 0, 'This is an information message'));
-    this.messages3.push(new Message(Date.now(), 1, 'This is a warning message'));
-    this.messages4.push(new Message(Date.now(), 2, 'This is an error message'));
-
-    console.log(this.timeHelper.convertToSecondsFromEpox('2018-09-16T18:39:27.49'));
+    this.messages2.push(new Log(2, new Date(), 0, 'This is an information Log'));
+    this.messages3.push(new Log(3, new Date(), 1, 'This is a warning Log'));
+    this.messages4.push(new Log(4, new Date(), 2, 'This is an error message'));
   }
 
   setMessages(num: number) {

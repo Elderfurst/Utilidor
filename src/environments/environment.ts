@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  utiladorApi: 'http://localhost:53708/api'
+  utiladorApi: 'http://utilidor.azurewebsites.net/api'
 };
 
 /*

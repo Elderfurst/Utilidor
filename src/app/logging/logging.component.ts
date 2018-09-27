@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MessageLevel } from '../shared/enums/message-level.enum';
-import { Message } from '../shared/models/message.model';
+import { LogLevel } from '../shared/enums/log-level.enum';
+import { Log } from '../shared/models/log.model';
 
 @Component({
   selector: 'app-logging',
@@ -9,7 +9,7 @@ import { Message } from '../shared/models/message.model';
 })
 export class LoggingComponent implements OnInit {
 
-  @Input() messages: Message[];
+  @Input() messages: Log[];
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class LoggingComponent implements OnInit {
 
   }
 
-  getRowClass(level: MessageLevel) {
+  getRowClass(level: LogLevel) {
     switch (level) {
       case 0:
         return '';
