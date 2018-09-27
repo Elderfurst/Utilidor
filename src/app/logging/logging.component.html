@@ -1,0 +1,38 @@
+<div class="mt-5">
+  <h3>Logging</h3>
+</div>
+
+<div class="mt-3" *ngIf="messages === null">
+  <div class="alert alert-primary" role="alert">
+    Select a utility above to see logs.
+  </div>
+</div>
+
+<div *ngIf="messages !== null">
+    <table class="table table-sm">
+        <thead>
+          <tr>
+            <th style="width:10%">#</th>
+            <th style="width:30%">Time</th>
+            <th style="width:10%">Level</th>
+            <th style="width:50%">Message</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let message of messages; index as i" class="{{getRowClass(message.level)}}">
+            <th scope="row">{{i}}</th>
+            <td>{{message.time | date:'medium'}}</td>
+            <td *ngIf="message.level == 0">
+              <i class="fas fa-info-circle text-info"></i>
+            </td>
+            <td *ngIf="message.level == 1">
+              <i class="fas fa-exclamation-triangle text-warning"></i>
+            </td>
+            <td *ngIf="message.level == 2">
+              <i class="fas fa-times-circle text-danger"></i>
+            </td>
+            <td>{{message.message}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Started</th>
+      <th>Elapsed Time (s)</th>
+      <th>Avg Time (s)</th>
+      <th>% Complete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of currentList">
+      <th scope="row">{{item.instanceId}}</th>
+      <td>{{item.utilityName}}</td>
+      <td>{{item.startTime}}</td>
+      <td>{{item.elapsedTime}}</td>
+      <td>{{item.averageTime}}</td>
+      <td>{{item.percentComplete}}</td>
+    </tr>
+  </tbody>
+</table>
