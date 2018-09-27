@@ -36,18 +36,7 @@ export class HistoricalComponent implements OnInit {
     this.dropdownText = util.name;
     this.currentUtility = util;
     this.utilityService.getInstances(util.id, this.instanceCount).subscribe((data: Instance[]) => {
-      this.instanceList = data;
-
-      this.instanceList.forEach((elem) => {
-        elem.startTimeInSec = this.timeHelper.convertToSecondsFromEpox(elem.startTime.toString());
-
-        if (elem.completeTime) {
-          elem.completeTimeInSec = this.timeHelper.convertToSecondsFromEpox(elem.completeTime.toString());
-          elem.elapsedTime = this.timeHelper.getDuration(elem.startTime.toString(), elem.completeTime.toString());
-        } else {
-          elem.elapsedTime = this.timeHelper.getDuration(elem.startTime.toString());
-        }
-      });
+      this.formatInstance(data);
     });
   }
 
@@ -65,7 +54,22 @@ export class HistoricalComponent implements OnInit {
     this.instanceCount = count;
     this.instanceText = count === -1 ? 'All' : this.instanceCount.toString();
     this.utilityService.getInstances(this.currentUtility.id, this.instanceCount).subscribe((data: Instance[]) => {
-      this.instanceList = data;
+      this.formatInstance(data);
+    });
+  }
+
+  formatInstance(data: Instance[]) {
+    this.instanceList = data;
+
+    this.instanceList.forEach((elem) => {
+      elem.startTimeInSec = this.timeHelper.convertToSecondsFromEpox(elem.startTime.toString());
+
+      if (elem.completeTime) {
+        elem.completeTimeInSec = this.timeHelper.convertToSecondsFromEpox(elem.completeTime.toString());
+        elem.elapsedTime = this.timeHelper.getDuration(elem.startTime.toString(), elem.completeTime.toString());
+      } else {
+        elem.elapsedTime = this.timeHelper.getDuration(elem.startTime.toString());
+      }
     });
   }
 }
