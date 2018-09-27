@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Log } from '../shared/models/log.model';
+import { TimeHelperService } from '../shared/services/time-helper.service';
 
 @Component({
   selector: 'app-nav-tabs',
@@ -14,7 +15,9 @@ export class NavTabsComponent implements OnInit {
   messages3: Log[] = [];
   messages4: Log[] = [];
 
-  constructor() {
+  constructor(
+    private timeHelper: TimeHelperService
+  ) {
   }
 
   ngOnInit() {

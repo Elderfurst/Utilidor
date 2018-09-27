@@ -21,7 +21,7 @@
         <tbody>
           <tr *ngFor="let message of messages; index as i" class="{{getRowClass(message.level)}}">
             <th scope="row">{{i}}</th>
-            <td>{{message.time | date:'medium'}}</td>
+            <td>{{message.timeInSeconds | date:'medium'}}</td>
             <td *ngIf="message.level == 0">
               <i class="fas fa-info-circle text-info"></i>
             </td>
