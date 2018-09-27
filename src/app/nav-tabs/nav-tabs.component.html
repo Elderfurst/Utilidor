@@ -10,18 +10,6 @@
       <ng-template ngbTabTitle><b>Historical Data</b><i class="far fa-calendar-alt pl-2"></i></ng-template>
       <ng-template ngbTabContent>
         <app-historical></app-historical>
-        <button class="btn btn-primary mr-2" (click)="setMessages(1)">
-          Set 1
-        </button>
-        <button class="btn btn-primary mr-2" (click)="setMessages(2)">
-          Set 2
-        </button>
-        <button class="btn btn-primary mr-2" (click)="setMessages(3)">
-          Set 3
-        </button>
-        <button class="btn btn-primary" (click)="setMessages(4)">
-          Set 4
-        </button>
         <app-logging [messages]="messages"></app-logging>
       </ng-template>
     </ngb-tab>

@@ -16,7 +16,7 @@
       <td>{{item.startTime}}</td>
       <td>{{item.elapsedTime}}</td>
       <td>{{item.averageTime}}</td>
-      <td>{{item.percentComplete}}</td>
+      <td><ngb-progressbar type={{getBarColor(item.elapsedTimeInSeconds,item.averageTime)}} value="{{item.percentComplete}}" striped="true" animated="true" height="22px">{{item.percentComplete | number: '1.0-0'}}%</ngb-progressbar></td>
     </tr>
   </tbody>
 </table>

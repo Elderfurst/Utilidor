@@ -1,3 +1,5 @@
+import { TimeHelperService } from '../services/time-helper.service';
+
 export class CurrentInstance {
     utilityId: number;
     instanceId: number;
@@ -6,4 +8,6 @@ export class CurrentInstance {
     elapsedTime: string;
     averageTime: number;
     percentComplete: number;
+    startTimeInSeconds: number;
+    elapsedTimeInSeconds: number;
 }
