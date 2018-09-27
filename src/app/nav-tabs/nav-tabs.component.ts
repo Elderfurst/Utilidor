@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Message } from '../shared/models/message.model';
 
 @Component({
   selector: 'app-nav-tabs',
@@ -7,11 +8,57 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavTabsComponent implements OnInit {
 
-  constructor() {
+  messages: Message[] = [];
+  messages1: Message[] = [];
+  messages2: Message[] = [];
+  messages3: Message[] = [];
+  messages4: Message[] = [];
 
+  constructor() {
   }
 
   ngOnInit() {
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 1, 'This is a warning message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 1, 'This is a warning message'));
+    this.messages1.push(new Message(Date.now(), 1, 'This is a warning message'));
+    this.messages1.push(new Message(Date.now(), 1, 'This is a warning message'));
+    this.messages1.push(new Message(Date.now(), 2, 'This is an error message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages1.push(new Message(Date.now(), 0, 'This is an information message'));
+
+    this.messages2.push(new Message(Date.now(), 0, 'This is an information message'));
+    this.messages3.push(new Message(Date.now(), 1, 'This is a warning message'));
+    this.messages4.push(new Message(Date.now(), 2, 'This is an error message'));
   }
 
+  setMessages(num: number) {
+    switch (num) {
+      case 1:
+        this.messages = this.messages1;
+        break;
+      case 2:
+        this.messages = this.messages2;
+        break;
+      case 3:
+        this.messages = this.messages3;
+        break;
+      case 4:
+        this.messages = this.messages4;
+        break;
+      default:
+        break;
+    }
+  }
 }
