@@ -1,1 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  cursor: url(http://cur.cursors-4u.net/food/foo-2/foo110.cur), auto !important;
+}
