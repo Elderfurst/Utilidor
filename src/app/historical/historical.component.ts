@@ -9,9 +9,11 @@ import { Utility } from '../shared/models/utility.model';
 })
 export class HistoricalComponent implements OnInit {
 
+  dropdownText: string;
   utilityList: Utility[];
 
   constructor(private utilityService: UtilityService) {
+    this.dropdownText = 'Select a Utility';
     this.utilityService.getAllUtilities().subscribe((data: Utility[]) => {
       this.utilityList = data;
     });
@@ -20,4 +22,7 @@ export class HistoricalComponent implements OnInit {
   ngOnInit() {
   }
 
+  showInstances(util: Utility) {
+    this.dropdownText = util.name;
+  }
 }
