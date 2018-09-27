@@ -19,12 +19,12 @@ export class CurrentComponent implements OnInit {
       this.currentList = data;
 
       this.currentList.forEach((element) => {
-        element.ElapsedTime =  Date.now() - Date.parse('2018-09-16T18:39:27.49');
+        element.elapsedTime =  Date.now() - Date.parse('2018-09-16T18:39:27.49');
       });
     });
   }
 
   showInstanceDetail(instance: CurrentInstanceModel) {
-    window.alert('Instance ' + instance.InstanceId + ' was clicked');
+    window.alert('Instance ' + instance.instanceId + ' was clicked');
   }
 }

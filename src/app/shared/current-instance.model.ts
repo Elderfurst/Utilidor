@@ -1,9 +1,9 @@
 export class CurrentInstanceModel {
-    UtilityId: number;
-    InstanceId: number;
-    UtilityName: string;
-    StartTime: Date;
-    ElapsedTime: number;
-    AverageTime: number;
-    PercentComplete: number;
+    utilityId: number;
+    instanceId: number;
+    utilityName: string;
+    startTime: Date;
+    elapsedTime: number;
+    averageTime: number;
+    percentComplete: number;
 }
