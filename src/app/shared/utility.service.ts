@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions } from '@angular/http';
-import { CurrentInstanceModel } from './current-instance.model';
+import { CurrentInstance } from './models/current-instance.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
@@ -10,7 +10,7 @@ import { Utility } from './models/utility.model';
   providedIn: 'root'
 })
 export class UtilityService {
-  currentList: CurrentInstanceModel[];
+  currentList: CurrentInstance[];
 
   constructor(private http: Http) {
     this.currentList = [];

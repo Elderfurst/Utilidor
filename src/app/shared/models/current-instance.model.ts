@@ -1,4 +1,4 @@
-export class CurrentInstanceModel {
+export class CurrentInstance {
     utilityId: number;
     instanceId: number;
     utilityName: string;
