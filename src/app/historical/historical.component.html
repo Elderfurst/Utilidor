@@ -6,6 +6,16 @@
         <button class="dropdown-item" *ngFor="let i of utilityList" (click)="showInstances(i)" >{{i.name}}</button>
       </div>
     </div>
+    <div ngbDropdown class="d-inline-block float-right">
+        Display:
+      <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>{{instanceText}}</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+        <button class="dropdown-item" (click)="updateInstanceCount(10)" >10</button>
+        <button class="dropdown-item" (click)="updateInstanceCount(25)" >25</button>
+        <button class="dropdown-item" (click)="updateInstanceCount(50)" >50</button>
+        <button class="dropdown-item" (click)="updateInstanceCount(-1)" >All</button>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -26,8 +26,8 @@ export class UtilityService {
                     .pipe(map(res => res.json()));
   }
 
-  getInstances(utilityId: number): Observable<any> {
-    return this.http.get(environment.utiladorApi + `/utility/${utilityId}/instances`)
+  getInstances(utilityId: number, count: number = -1): Observable<any> {
+    return this.http.get(environment.utiladorApi + `/utility/${utilityId}/instances?count=${count}`)
                     .pipe(map(res => res.json()));
   }
 

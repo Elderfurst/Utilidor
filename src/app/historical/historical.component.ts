@@ -13,12 +13,17 @@ import { TimeHelperService } from '../shared/services/time-helper.service';
 export class HistoricalComponent implements OnInit {
 
   dropdownText: string;
+  instanceCount: number;
+  instanceText: string;
+  currentUtility: Utility;
   utilityList: Utility[];
   instanceList: Instance[];
   logList: Log[];
 
   constructor(private utilityService: UtilityService, private timeHelper: TimeHelperService) {
     this.dropdownText = 'Select a Utility';
+    this.instanceCount = 10;
+    this.instanceText = '10';
     this.utilityService.getAllUtilities().subscribe((data: Utility[]) => {
       this.utilityList = data;
     });
@@ -29,7 +34,8 @@ export class HistoricalComponent implements OnInit {
 
   showInstances(util: Utility) {
     this.dropdownText = util.name;
-    this.utilityService.getInstances(util.id).subscribe((data: Instance[]) => {
+    this.currentUtility = util;
+    this.utilityService.getInstances(util.id, this.instanceCount).subscribe((data: Instance[]) => {
       this.instanceList = data;
 
       this.instanceList.forEach((elem) => {
@@ -49,6 +55,14 @@ export class HistoricalComponent implements OnInit {
       this.logList.forEach((elem) => {
         elem.timeInSeconds = this.timeHelper.convertToSecondsFromEpox(elem.timestamp.toString());
       });
+    });
+  }
+
+  updateInstanceCount(count: number) {
+    this.instanceCount = count;
+    this.instanceText = count === -1 ? 'All' : this.instanceCount.toString();
+    this.utilityService.getInstances(this.currentUtility.id, this.instanceCount).subscribe((data: Instance[]) => {
+      this.instanceList = data;
     });
   }
 }
