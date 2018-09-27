@@ -8,6 +8,7 @@ import { NavTabsComponent } from './nav-tabs/nav-tabs.component';
 import { CurrentComponent } from './current/current.component';
 import { HttpModule } from '@angular/http';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LoggingComponent } from './logging/logging.component';
 
 const routes: Routes = [
   {
@@ -25,13 +26,15 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     NavTabsComponent,
+    NavBarComponent,
+    LoggingComponent,
+    NavBarComponent,
     CurrentComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     NgbModule,
-    NavBarComponent,
     RouterModule.forRoot(routes)
   ],
   providers: [],
