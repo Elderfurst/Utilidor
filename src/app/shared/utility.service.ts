@@ -27,12 +27,12 @@ export class UtilityService {
   }
 
   getInstances(utilityId: number): Observable<any> {
-    return this.http.get(environment.utiladorApi + `/{utilityId}/instances`)
+    return this.http.get(environment.utiladorApi + `/utility/${utilityId}/instances`)
                     .pipe(map(res => res.json()));
   }
 
   getLogs(instanceId: number): Observable<any> {
-    return this.http.get(environment.utiladorApi + `/logs/{instanceId}`)
+    return this.http.get(environment.utiladorApi + `/utility/logs/${instanceId}`)
                     .pipe(map(res => res.json()));
   }
 }

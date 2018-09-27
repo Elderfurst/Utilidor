@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrentInstance } from '../shared/models/current-instance.model';
 import { UtilityService } from '../shared/utility.service';
+import { Log } from '../shared/models/log.model';
 @Component({
   selector: 'app-current',
   templateUrl: './current.component.html',
@@ -9,9 +10,11 @@ import { UtilityService } from '../shared/utility.service';
 export class CurrentComponent implements OnInit {
 
   currentList: CurrentInstance[];
+  currentMessages: Log[];
 
   constructor(private utilityService: UtilityService) {
     this.currentList = [];
+    this.currentMessages = [];
   }
 
   ngOnInit() {
@@ -25,6 +28,8 @@ export class CurrentComponent implements OnInit {
   }
 
   showInstanceDetail(instance: CurrentInstance) {
-    window.alert('Instance ' + instance.instanceId + ' was clicked');
+    this.utilityService.getLogs(instance.instanceId).subscribe((data: Log[]) => {
+      this.currentMessages = data;
+    });
   }
 }
