@@ -41,7 +41,12 @@ export class TimeHelperService {
     const ms = `${mnts}`.padStart(2, '0');
     const ss = `${seconds}`.padStart(2, '0');
 
-    let retVal = `${hs}h ${ms}m ${ss}s`;
+    let retVal = `${ms}m ${ss}s`;
+
+    if (hrs > 0) {
+      retVal = `${hs}h ` + retVal;
+    }
+
     if (days !== 0 ) {
       retVal = `${days}d ` + retVal;
     }

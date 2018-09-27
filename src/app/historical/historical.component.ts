@@ -3,6 +3,7 @@ import { UtilityService } from '../shared/utility.service';
 import { Utility } from '../shared/models/utility.model';
 import { Instance } from '../shared/models/instance.model';
 import { Logs } from '../../../node_modules/@types/selenium-webdriver';
+import { TimeHelperService } from '../shared/services/time-helper.service';
 
 @Component({
   selector: 'app-historical',
@@ -16,7 +17,7 @@ export class HistoricalComponent implements OnInit {
   instanceList: Instance[];
   logList: Logs[];
 
-  constructor(private utilityService: UtilityService) {
+  constructor(private utilityService: UtilityService, private timeHelper: TimeHelperService) {
     this.dropdownText = 'Select a Utility';
     this.utilityService.getAllUtilities().subscribe((data: Utility[]) => {
       this.utilityList = data;
@@ -30,6 +31,14 @@ export class HistoricalComponent implements OnInit {
     this.dropdownText = util.name;
     this.utilityService.getInstances(util.id).subscribe((data: Instance[]) => {
       this.instanceList = data;
+
+      this.instanceList.forEach((elem) => {
+        if (elem.completeTime) {
+          elem.elapsedTime = this.timeHelper.getDuration(elem.startTime.toString(), elem.completeTime.toString());
+        } else {
+          elem.elapsedTime = this.timeHelper.getDuration(elem.startTime.toString());
+        }
+      });
     });
   }
 
