@@ -39,7 +39,10 @@ export class HistoricalComponent implements OnInit {
       this.instanceList = data;
 
       this.instanceList.forEach((elem) => {
+        elem.startTimeInSec = this.timeHelper.convertToSecondsFromEpox(elem.startTime.toString());
+
         if (elem.completeTime) {
+          elem.completeTimeInSec = this.timeHelper.convertToSecondsFromEpox(elem.completeTime.toString());
           elem.elapsedTime = this.timeHelper.getDuration(elem.startTime.toString(), elem.completeTime.toString());
         } else {
           elem.elapsedTime = this.timeHelper.getDuration(elem.startTime.toString());

@@ -31,8 +31,8 @@
   <tbody>
     <tr *ngFor="let i of instanceList" (click)="showLogs(i)">
       <th scope="row">{{i.id}}</th>
-      <td>{{i.startTime }}</td>
-      <td>{{i.completeTime || '-'}}</td>
+      <td>{{i.startTimeInSec | date: 'medium' }}</td>
+      <td>{{ (i.completeTimeInSec) ? (i.completeTimeInSec | date: 'medium') : '-'}}</td>
       <td>{{i.elapsedTime}}</td>
     </tr>
   </tbody>

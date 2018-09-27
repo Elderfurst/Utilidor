@@ -6,4 +6,7 @@ export class Instance {
     elapsedTime: string;
     numerator: number;
     denominator: number;
+
+    startTimeInSec: number;
+    completeTimeInSec: number;
 }
